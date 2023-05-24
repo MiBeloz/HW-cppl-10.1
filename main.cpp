@@ -1,0 +1,23 @@
+﻿#include "tridiagonal_matrix.h"
+
+
+int main() {
+    setlocale(LC_ALL, "ru");
+    std::cout << "\tКлонирование объекта класса\n" << std::endl;
+
+    {
+        auto down = std::vector<double>{ -4.0, 5.0 };
+        auto upper = std::vector<double>{ 14.0, 8.0 };
+        auto middle = std::vector<double>{ 3.0, 1.0, 7.0 };
+        auto matrix = std::make_unique<tridiagonal_matrix>(
+            down,
+            upper,
+            middle
+            );
+
+        auto matrix_clone = matrix->clone();
+    }
+
+    system("pause > nul");
+    return 0;
+}
